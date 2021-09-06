@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Şehir Yönetim Sistemi</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Şehir Yönetim Sistemi</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+</nav>
+
+<div class ="container">
+    <div class = "row">
+        <!-- clock widget start -->
+        <script type="text/javascript"> var css_file=document.createElement("link"); css_file.setAttribute("rel","stylesheet"); css_file.setAttribute("type","text/css"); css_file.setAttribute("href","//s.bookcdn.com//css/cl/bw-cl-126el.css?v=0.0.1"); document.getElementsByTagName("head")[0].appendChild(css_file); </script> <div id="tw_7_1657849975"><div style="width:126px; height:82px; margin: 0 auto;"><a href="https://bookeder.com/time/laleli-26063">Laleli</a><br/></div></div> <script type="text/javascript"> function setWidgetData_1657849975(data){ if(typeof(data) != 'undefined' && data.results.length > 0) { for(var i = 0; i < data.results.length; ++i) { var objMainBlock = ''; var params = data.results[i]; objMainBlock = document.getElementById('tw_'+params.widget_type+'_'+params.widget_id); if(objMainBlock !== null) objMainBlock.innerHTML = params.html_code; } } } var clock_timer_1657849975 = -1; widgetSrc = "https://widgets.booked.net/time/info?ver=2;domid=765;type=7;id=1657849975;scode=124;city_id=26063;wlangid=21;mode=0;details=0;background=ffffff;border_color=ffffff;color=08488d;add_background=ffffff;add_color=00faff;head_color=333333;border=0;transparent=0"; var widgetUrl = location.href; widgetSrc += '&ref=' + widgetUrl; var wstrackId = ""; if (wstrackId) { widgetSrc += ';wstrackId=' + wstrackId + ';' } var timeBookedScript = document.createElement("script"); timeBookedScript.setAttribute("type", "text/javascript"); timeBookedScript.src = widgetSrc; document.body.appendChild(timeBookedScript); </script>
+        <!-- clock widget end -->
+
+        <!— wWw.Eniyisozler.Net Kod Başlangıcı —>
+        <img src="https://www.eniyisozler.net/Html-images/Bayraklar/bayrak-9.png" alt="HTML Türk Bayrağı Kodları" border="0"></a>
+        <!— wWw.Eniyisozler.Net Kod Sonu —>
+
+
+    </div>
+
+    <div class = "row">
+        <div class = "col-lg-3">
+            <a th:href="@{/showNewRegionForm}" class="btn btn-primary btn -sm mb-3">Yeni Şehir Ekle</a>
+        </div>
+    </div>
+    <table class = "table table-striped table-bordered">
+        <thead class = "table-dark">
+        <tr>
+            <th>Şehir İsmi</th>
+            <th>Şehre Ait İlçenin İsmi</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="region:${listRegion}">
+            <td th:text="${region.city}"></td>
+            <td th:text="${region.district}"></td>
+            <td> <a th:href="@{/showFormForUpdate/{id}(id=${region.id})}" class="btn btn-primary">Güncelle</a>
+                <a th:href="@{/deleteRegion/{id}(id=${region.id})}" class="btn btn-danger">Sil</a>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+</body>
+</html>
